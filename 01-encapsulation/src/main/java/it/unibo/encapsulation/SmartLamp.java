@@ -1,11 +1,11 @@
 package it.unibo.encapsulation;
-
+//variabili
 public class SmartLamp{
     private static boolean statoOnOff;
     public static int intensity;
     public static String color;
 
-
+    //costrutti
     public SmartLamp(){
         this.statoOnOff=false;
         this.intensity=1; //da 1 a 3
@@ -38,7 +38,18 @@ public class SmartLamp{
         }
 
     }
-        
+
+    //aggiunta setter
+    public void ONstatoOnOff(){
+        if(this.statoOnOff=false){
+            this.statoOnOff= true;
+            System.out.println("Accesa");
+        }
+        else{
+            this.statoOnOff= false;
+            System.out.println("Spenta");
+        }
+    }   
 
 
 }
