@@ -1,28 +1,21 @@
 package it.unibo.encapsulation;
 //variabili
-public class SmartLamp{
-    private static boolean statoOnOff;
-    public static int intensity;
-    public static String color;
+public class SmartLamp {
+    private boolean statoOnOff;
+    private int intensity;
+    private String color;
 
     //costrutti
-    public SmartLamp(){
-        this.statoOnOff=false;
+    public SmartLamp() {
+        this.statoOnOff = false;
         this.intensity=1; //da 1 a 3
-        this.color='White';//white, red, blue e green
+        this.color="White";//white, red, blue e green
     }
 
-    public SmartLamp(boolean SstatoOnOff, int Iintensity, String Ccolor){
-        this.statoOnOff=SstatoOnOff;
-        if(Iintensity<1 && Iintensity>3){
-            System.out.println("Valore errato");
-            this.intensity=1;
-        }
-        else{
-            this.intensity=Iintensity;
-        }
-
-        color(Ccolor);
+    public SmartLamp(boolean statoOnOff, int intensity, String color){
+        this.statoOnOff=statoOnOff;
+        setIntensity(intensity);
+        setColor(color);
 
     }
 
@@ -30,16 +23,16 @@ public class SmartLamp{
         return this.statoOnOff;
     }
 
-    public boolean getintensity(){
+    public int getintensity(){
         return this.intensity;
     }
 
-    public boolean getcolor(){
+    public String getcolor(){
         return this.color;
     }  
 
     //aggiunta setter
-    public void ONstatoOnOff(){
+    public void switchLamp(){
         /*if(this.statoOnOff==false){
             this.statoOnOff= true;
             System.out.println("Accesa");
@@ -51,32 +44,15 @@ public class SmartLamp{
         this.statoOnOff=!this.statoOnOff;
     }
 
-    public void calculationintensity(){
-        if(this.intensity==1){
-            System.out.println("Intensità bassa");
-        }
-        else if(this.intensity==2){
-            System.out.println("Intensità media");
-        }
-        else{
-            System.out.println("Intensità alta");
+    public void setIntensity(int intensity) {
+        if(intensity==1 || intensity==2 || intensity==3) {
+            this.intensity = intensity;
         }
     }  
 
-    public void color(String Ccolor){
-        switch(Ccolor){
-            case "White":
-                this.color=Ccolor;
-                break;
-            case "Green":
-                this.color=Ccolor;
-                break;
-            case "Red":
-                this.color=Ccolor;
-                break;
-            case "blue":
-                this.color=Ccolor;
-                break;
+    public void setColor(String Ccolor){
+        if(Ccolor == "White" || Ccolor == "Green" || Ccolor == "Red" || Ccolor == "Blue"){
+            this.color=Ccolor;
         }
     }
 
@@ -84,6 +60,12 @@ public class SmartLamp{
         System.out.println("\n Status: "+getstatoOnOff());
         System.out.println("\n Color: "+getcolor());
         System.out.println("\n Intnsity: "+getintensity());
+    }
+
+    public static void main(String args[]){
+        SmartLamp s = new SmartLamp();
+        System.out.println("Il colore della lampada e': " + s.getcolor());
+        s.printAll();
     }
 
 }
