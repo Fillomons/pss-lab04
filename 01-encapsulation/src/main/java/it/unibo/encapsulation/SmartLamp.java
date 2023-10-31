@@ -44,6 +44,10 @@ public class SmartLamp {
         this.statoOnOff=!this.statoOnOff;
     }
 
+    public boolean isOn(){
+        return this.statoOnOff;
+    }
+
     public void setIntensity(int intensity) {
         if(intensity==1 || intensity==2 || intensity==3) {
             this.intensity = intensity;
